@@ -13,7 +13,7 @@ void printData()
 {
     while (head!= NULL)
     {
-        printf("%d\n", head->data);
+        printf("%d ", head->data);
         head = head->next;
     }
     printf("\n");

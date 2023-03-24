@@ -7,14 +7,27 @@ typedef struct node
 
 } node;
 
-node *head; //global declare
+node *head;
+void InsertInFront(int data)
+{
+    node *Newnode;
+    Newnode=(node*)malloc(sizeof(node));
+    Newnode->data=data;
+    Newnode->next=NULL;
+
+    Newnode->next=head;
+    head=Newnode;
+}
 
 void printData()
 {
-    while (head!= NULL)
+    printf("New List is  ");
+    node *current = head;
+
+    while (current!= NULL)
     {
-        printf("%d\n", head->data);
-        head = head->next;
+        printf("%d ", current->data);
+        current = current->next;
     }
     printf("\n");
 }
@@ -28,5 +41,6 @@ int main()
     head->next->next = (node *)malloc(sizeof(node));
     head->next->next->data = 30;
     head->next->next->next = NULL;
+    InsertInFront(60);
     printData();
 }

@@ -70,27 +70,16 @@ void createList(int n)
     {
         newNode = (node *)malloc(sizeof(node));
 
-        /* If memory is not allocated for newNode */
-        if (newNode == NULL)
-        {
-            printf("Unable to allocate memory.");
-            break;
-        }
-        else
-        {
-            printf("Enter the data of node %d: ", i);
-            scanf("%d", &data);
+        printf("Enter the data of node %d: ", i);
+        scanf("%d", &data);
 
-            newNode->data = data; // Link data field of newNode with data
-            newNode->next = NULL; // Link address field of newNode with NULL
+        newNode->data = data; // Link data field of newNode with data
+        newNode->next = NULL; // Link address field of newNode with NULL
 
-            temp->next = newNode; // Link previous node i.e. temp to the newNode
+        temp->next = newNode; // Link previous node i.e. temp to the newNode
 
-            temp = temp->next;
-        }
+        temp = temp->next;
     }
-
-    printf("SINGLY LINKED LIST CREATED SUCCESSFULLY\n");
 }
 
 /*

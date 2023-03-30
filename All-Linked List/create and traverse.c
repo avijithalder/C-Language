@@ -6,11 +6,14 @@
 #include <stdlib.h>
 
 /* Structure of a node */
-struct node
+typedef struct node
 {
     int data;          // Data
     struct node *next; // Address
-} *head;
+} node;
+
+// Golbally declerar
+node *head;
 
 /*
  * Functions to create and display list
@@ -38,10 +41,10 @@ int main()
  */
 void createList(int n)
 {
-    struct node *newNode, *temp;
+    node *newNode, *temp;
     int data, i;
 
-    head = (struct node *)malloc(sizeof(struct node));
+    head = (node *)malloc(sizeof(node));
 
     // Input data of node from the user
     printf("Enter the data of node 1: ");
@@ -54,7 +57,7 @@ void createList(int n)
     temp = head;
     for (i = 2; i <= n; i++)
     {
-        newNode = (struct node *)malloc(sizeof(struct node));
+        newNode = (node *)malloc(sizeof(node));
 
         printf("Enter the data of node %d: ", i);
         scanf("%d", &data);
@@ -72,7 +75,7 @@ void createList(int n)
  */
 void traverseList()
 {
-    struct node *temp;
+    node *temp;
 
     temp = head;
     while (temp != NULL)

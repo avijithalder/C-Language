@@ -43,13 +43,6 @@ void createList(int n)
 
     head = (struct node *)malloc(sizeof(struct node));
 
-    // Terminate if memory not allocated
-    if (head == NULL)
-    {
-        printf("Unable to allocate memory.");
-        exit(0);
-    }
-
     // Input data of node from the user
     printf("Enter the data of node 1: ");
     scanf("%d", &data);
@@ -62,13 +55,6 @@ void createList(int n)
     for (i = 2; i <= n; i++)
     {
         newNode = (struct node *)malloc(sizeof(struct node));
-
-        /* If memory is not allocated for newNode */
-        if (newNode == NULL)
-        {
-            printf("Unable to allocate memory.");
-            break;
-        }
 
         printf("Enter the data of node %d: ", i);
         scanf("%d", &data);
@@ -87,13 +73,6 @@ void createList(int n)
 void traverseList()
 {
     struct node *temp;
-
-    // Return if list is empty
-    if (head == NULL)
-    {
-        printf("List is empty.");
-        return;
-    }
 
     temp = head;
     while (temp != NULL)

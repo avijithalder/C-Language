@@ -86,13 +86,6 @@ void deleteFirstNode()
 
     toDelete = head;
     head = head->next;
-
-    printf("\nData deleted = %d\n", toDelete->data);
-
-    /* Clears the memory occupied by first node*/
-    free(toDelete);
-
-    printf("SUCCESSFULLY DELETED FIRST NODE FROM LIST\n");
 }
 
 /*

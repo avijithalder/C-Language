@@ -6,13 +6,11 @@
 #include <stdlib.h>
 
 /* Structure of a node */
-typedef struct node
+struct node
 {
     int data;          // Data
     struct node *next; // Address
-} node;
-
-node *head;
+}*head;
 
 void createList(int n);
 void deleteFirstNode();
@@ -20,7 +18,7 @@ void displayList();
 
 int main()
 {
-    int n, choice;
+    int n;
 
     /*
      * Create a singly linked list of n nodes
@@ -32,12 +30,7 @@ int main()
     printf("\nData in the list \n");
     displayList();
 
-    printf("\nPress 1 to delete first node: ");
-    scanf("%d", &choice);
-
-    /* Delete first node from list */
-    if (choice == 1)
-        deleteFirstNode();
+    deleteFirstNode();
 
     printf("\nData in the list \n");
     displayList();
@@ -50,10 +43,10 @@ int main()
  */
 void createList(int n)
 {
-    node *newNode, *temp;
+    struct node *newNode, *temp;
     int data, i;
 
-    head = (node *)malloc(sizeof(node));
+    head = (struct node *)malloc(sizeof(struct node));
 
     /*
      * In data of node from the user
@@ -71,7 +64,7 @@ void createList(int n)
      */
     for (i = 2; i <= n; i++)
     {
-        newNode = (node *)malloc(sizeof(node));
+        newNode = (struct node *)malloc(sizeof(struct node));
 
         printf("Enter the data of node %d: ", i);
         scanf("%d", &data);
@@ -82,8 +75,6 @@ void createList(int n)
         temp->next = newNode; // Link previous node i.e. temp to the newNode
         temp = temp->next;
     }
-
-    printf("SINGLY LINKED LIST CREATED SUCCESSFULLY\n");
 }
 
 /*
@@ -91,7 +82,7 @@ void createList(int n)
  */
 void deleteFirstNode()
 {
-    node *toDelete;
+    struct node *toDelete;
 
     toDelete = head;
     head = head->next;
@@ -109,7 +100,7 @@ void deleteFirstNode()
  */
 void displayList()
 {
-    node *temp;
+    struct node *temp;
 
     temp = head;
     while (temp != NULL)

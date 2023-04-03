@@ -47,7 +47,7 @@ struct node *insertRight(struct node *root, int value)
 
 int main()
 {
-    struct node *root = createNode(1);
+    struct node *root = createNode(1);   //  also called head;
     insertLeft(root, 12);
     insertRight(root, 9);
 
